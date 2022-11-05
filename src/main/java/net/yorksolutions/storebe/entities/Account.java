@@ -22,15 +22,17 @@ public class Account {
     @JsonIgnore
     private String password;
 
+    private Number rank;
+
     public Long getId() {
         return id;
     }
 
-    private Integer rank;
+
     public Account() {
     }
 
-    public Account(String firstname, String lastname, String email, String username, String password, Integer rank) {
+    public Account(String firstname, String lastname, String email, String username, String password, Number rank) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -79,7 +81,7 @@ public class Account {
         this.password = password;
     }
 
-    public Integer getRank() {
+    public Number getRank() {
         return rank;
     }
 
