@@ -25,7 +25,7 @@ public class AccountService {
 
         try {
             return this.accountRepository.save(
-                    new Account(requestDTO.firstname, requestDTO.lastname, requestDTO.email, requestDTO.username, requestDTO.password));
+                    new Account(requestDTO.firstname, requestDTO.lastname, requestDTO.email, requestDTO.username, requestDTO.password, requestDTO.rank));
         }
         catch (RuntimeException exception) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);
@@ -45,4 +45,23 @@ public class AccountService {
         }
         return accountOpt.get();
     }
+
+//    public Account deleteById(Long id) {
+//
+//        try {
+//            final var useraccount = AccountRepository.findById(id).orElseThrow();
+//
+//            AccountService.removeEmployeeFromAllManagers(useraccount);
+//
+//            AccountRepository.deleteById(id);
+//
+//            return true;
+//
+//        } catch (Exception e) {
+//
+//            //
+//            return false;
+//        }
+//
+//    }
 }

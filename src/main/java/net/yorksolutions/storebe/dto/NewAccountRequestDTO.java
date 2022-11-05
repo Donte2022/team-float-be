@@ -12,4 +12,6 @@ public class NewAccountRequestDTO {
     public String username;
 
     public String password;
+
+    public Integer rank;
 }

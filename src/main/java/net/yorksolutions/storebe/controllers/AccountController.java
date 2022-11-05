@@ -24,9 +24,16 @@ public class AccountController {
         return this.accountService.create(requestDTO);
     }
 
+//    @DeleteMapping
+//    public Account delete() {
+//
+//    }
+
     //allow the FE to have access to the accounts to allow the client to login
     @GetMapping
     public Account login(@RequestParam String username, @RequestParam String password) {
         return this.accountService.login(username, password);
     }
+
+
 }

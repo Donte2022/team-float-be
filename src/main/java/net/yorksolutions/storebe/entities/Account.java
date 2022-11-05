@@ -26,15 +26,17 @@ public class Account {
         return id;
     }
 
+    private Integer rank;
     public Account() {
     }
 
-    public Account(String firstname, String lastname, String email, String username, String password) {
+    public Account(String firstname, String lastname, String email, String username, String password, Integer rank) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.username = username;
         this.password = password;
+        this.rank = rank;
     }
 
     public String getFirstname() {
@@ -77,5 +79,11 @@ public class Account {
         this.password = password;
     }
 
+    public Integer getRank() {
+        return rank;
+    }
 
+    public void setRank(Integer rank) {
+        this.rank = rank;
+    }
 }
