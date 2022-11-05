@@ -24,10 +24,6 @@ public class Account {
 
     private Number rank;
 
-    public Long getId() {
-        return id;
-    }
-
 
     public Account() {
     }
@@ -39,6 +35,10 @@ public class Account {
         this.username = username;
         this.password = password;
         this.rank = rank;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getFirstname() {
