@@ -14,9 +14,11 @@ public class AccountService {
 
 
     AccountRepository accountRepository;
+    AccountService accountService;
 
     public AccountService(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
+        this.accountService = accountService;
     }
 
 
@@ -46,22 +48,21 @@ public class AccountService {
         return accountOpt.get();
     }
 
-//    public Account deleteById(Long id) {
-//
-//        try {
-//            final var useraccount = AccountRepository.findById(id).orElseThrow();
-//
-//            AccountService.removeEmployeeFromAllManagers(useraccount);
-//
-//            AccountRepository.deleteById(id);
-//
-//            return true;
-//
-//        } catch (Exception e) {
-//
-//            //
-//            return false;
-//        }
-//
-//    }
+    public boolean deleteById(Long id) {
+
+      try {
+        var userAccount = accountRepository.findById(id).orElseThrow();
+
+        //delete the account in the repo
+        accountRepository.deleteById(id);
+
+        //delete was success = true
+        return true;
+
+    } catch (Exception e) {
+
+          // If delete fail or error = false
+          return false;
+      }
+    }
 }

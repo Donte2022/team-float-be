@@ -24,10 +24,19 @@ public class AccountController {
         return this.accountService.create(requestDTO);
     }
 
-//    @DeleteMapping
-//    public Account delete() {
-//
-//    }
+    static class Message {
+        public String message;
+        Message(String message) {
+            this.message = message;
+        }
+    }
+ @DeleteMapping("/{id}")
+ Message deleteById(@PathVariable Long id) {
+        //get a boolean if the delete was a success or fail
+     //wrap the reply from the delete method inside of Message object
+     //to trigger jackson into convert it into Json format to help the front end
+     return new Message (accountService.deleteById(id) ? "Account successfully deleted" : "Fail to delete account" );
+ }
 
     //allow the FE to have access to the accounts to allow the client to login
     @GetMapping
