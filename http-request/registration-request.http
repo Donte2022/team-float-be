@@ -1,0 +1,10 @@
+POST http://localhost:5650/api/account
+Content-Type: application/json
+
+{
+  "firstname": "Mary",
+        "lastname": "Dauls",
+  "email": "Mdauls2022@Gmail.com",
+  "username": "Dauls2022",
+  "password": "password123"
+}

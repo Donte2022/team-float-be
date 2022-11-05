@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Optional;
+
 @Service
 public class AccountService {
 
@@ -29,5 +31,18 @@ public class AccountService {
             throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
 
+    }
+
+
+    //this method will search the database for the accounts using the repo
+    //this method does return an Optional in the form of Accounts
+    public Account login(String username, String password) {
+        Optional<Account> accountOpt = this.accountRepository.findByUsernameAndPassword(username, password);
+        if (accountOpt.isEmpty()) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND
+            );
+        }
+        return accountOpt.get();
     }
 }
