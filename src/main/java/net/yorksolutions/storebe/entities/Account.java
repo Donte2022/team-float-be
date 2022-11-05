@@ -22,13 +22,13 @@ public class Account {
     @JsonIgnore
     private String password;
 
-    private Number rank;
+    private Integer rank;
 
 
     public Account() {
     }
 
-    public Account(String firstname, String lastname, String email, String username, String password, Number rank) {
+    public Account(String firstname, String lastname, String email, String username, String password, Integer rank) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
