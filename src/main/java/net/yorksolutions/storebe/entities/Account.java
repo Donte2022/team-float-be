@@ -85,7 +85,7 @@ public class Account {
         return rank;
     }
 
-    public void setRank(Integer rank) {
+    public void setRank(Number rank) {
         this.rank = rank;
     }
 }
