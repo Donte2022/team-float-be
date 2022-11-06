@@ -24,4 +24,14 @@ public class ProductController {
     public void addProduct(@RequestBody NewProductRequestDTO newProduct) {
         this.productService.addProduct(newProduct);
     }
+
+    @DeleteMapping
+    public void deleteProduct(@RequestParam Long id) {
+         this.productService.deleteProduct(id);
+    }
+
+    @PutMapping
+    public void updateProduct(@RequestBody Product updatedProduct) {
+        this.productService.updateProduct(updatedProduct);
+    }
 }

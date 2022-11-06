@@ -41,4 +41,93 @@ public class Product {
 
     public Product() {
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public Float getMap() {
+        return map;
+    }
+
+    public void setMap(Float map) {
+        this.map = map;
+    }
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
+    public Date getDateAvailable() {
+        return dateAvailable;
+    }
+
+    public void setDateAvailable(Date dateAvailable) {
+        this.dateAvailable = dateAvailable;
+    }
+
+    public Float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Float weight) {
+        this.weight = weight;
+    }
+
+    public boolean isDiscontinued() {
+        return discontinued;
+    }
+
+    public void setDiscontinued(boolean discontinued) {
+        this.discontinued = discontinued;
+    }
+
+    public float getCost() {
+        return cost;
+    }
+
+    public void setCost(float cost) {
+        this.cost = cost;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public void setAll(Product product) {
+        this.productName = product.productName;
+        this.displayName = product.displayName;
+        this.price = product.price;
+        this.map = product.map;
+        this.dateAvailable = product.dateAvailable;
+        this.weight = product.weight;
+        this.discontinued = product.discontinued;
+        this.cost = product.cost;
+        this.imageUrl = product.imageUrl;
+
+    }
 }
