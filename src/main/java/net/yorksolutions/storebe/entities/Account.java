@@ -1,5 +1,6 @@
 package net.yorksolutions.storebe.entities;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -88,4 +89,5 @@ public class Account {
     public void setRank(Integer rank) {
         this.rank = rank;
     }
+
 }
