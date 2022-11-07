@@ -5,9 +5,9 @@ package net.yorksolutions.storebe.dto;
     public class UpdateAccountRequestDTO {
 
 
-        public String firstname;
+        public String firstName;
 
-        public String lastname;
+        public String lastName;
 
         public String email;
 

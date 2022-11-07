@@ -25,7 +25,6 @@ public class AccountService {
 
 
     public Account create(NewAccountRequestDTO requestDTO) {
-
         try {
             return this.accountRepository.save(
                     new Account(requestDTO.firstName, requestDTO.lastName, requestDTO.email, requestDTO.username, requestDTO.password, requestDTO.rank));
@@ -71,15 +70,14 @@ public class AccountService {
 
 
     public boolean updateAccount(UpdateAccountRequestDTO requestDTO, Long id) {
-
         try {
 
             Optional<Account> userAccount = this.accountRepository.findById(id);
 
             Account account = userAccount.get();
 
-            account.setFirstName(requestDTO.firstname);
-            account.setLastName(requestDTO.lastname);
+            account.setFirstName(requestDTO.firstName);
+            account.setLastName(requestDTO.lastName);
             account.setEmail(requestDTO.email);
             account.setUsername(requestDTO.username);
             account.setPassword(requestDTO.password);
