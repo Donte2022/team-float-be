@@ -27,14 +27,13 @@ public class AccountService {
 
         try {
             return this.accountRepository.save(
-                    new Account(requestDTO.firstname, requestDTO.lastname, requestDTO.email, requestDTO.username, requestDTO.password, requestDTO.rank));
+                    new Account(requestDTO.firstName, requestDTO.lastName, requestDTO.email, requestDTO.username, requestDTO.password, requestDTO.rank));
         }
         catch (RuntimeException exception) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
 
     }
-
 
     //this method will search the database for the accounts using the repo
     //this method does return an Optional in the form of Accounts
@@ -47,23 +46,4 @@ public class AccountService {
         }
         return accountOpt.get();
     }
-
-//    public Account deleteById(Long id) {
-//
-//        try {
-//            final var useraccount = AccountRepository.findById(id).orElseThrow();
-//
-//            AccountService.removeEmployeeFromAllManagers(useraccount);
-//
-//            AccountRepository.deleteById(id);
-//
-//            return true;
-//
-//        } catch (Exception e) {
-//
-//            //
-//            return false;
-//        }
-//
-//    }
 }

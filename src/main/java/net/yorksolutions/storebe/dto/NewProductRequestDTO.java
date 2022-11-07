@@ -12,5 +12,6 @@ public class NewProductRequestDTO {
     public boolean discontinued;
     public float cost;
     public String imageUrl;
+
     public String description;
 }

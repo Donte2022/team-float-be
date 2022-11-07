@@ -6,6 +6,7 @@ import net.yorksolutions.storebe.services.ProductService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/product")
 public class ProductController {
 

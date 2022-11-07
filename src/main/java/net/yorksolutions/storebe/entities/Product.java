@@ -2,10 +2,7 @@ package net.yorksolutions.storebe.entities;
 
 import net.yorksolutions.storebe.dto.NewProductRequestDTO;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -14,6 +11,8 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    @Column(nullable = false, unique = true)
     private String productName;
     private String displayName;
     private Float map;
@@ -23,7 +22,6 @@ public class Product {
     private boolean discontinued;
     private Float costToMake;
     private String imageUrl;
-
     private String description;
 
 //    public Set Category;

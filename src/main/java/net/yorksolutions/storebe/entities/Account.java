@@ -4,6 +4,7 @@ package net.yorksolutions.storebe.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Account {
@@ -11,9 +12,9 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String firstname;
+    private String firstName;
 
-    private String lastname;
+    private String lastName;
 
     private String email;
 
@@ -25,13 +26,15 @@ public class Account {
 
     private Integer rank;
 
+    @OneToMany
+    public Set<Product> cart;
 
     public Account() {
     }
 
-    public Account(String firstname, String lastname, String email, String username, String password, Integer rank) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public Account(String firstName, String lastName, String email, String username, String password, Integer rank) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
@@ -43,19 +46,19 @@ public class Account {
     }
 
     public String getFirstname() {
-        return firstname;
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstname(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastname(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
