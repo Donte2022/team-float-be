@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 public class Product {
@@ -22,8 +21,10 @@ public class Product {
     private Date dateAvailable;
     private Float weight;
     private boolean discontinued;
-    private Float cost;
+    private Float costToMake;
     private String imageUrl;
+
+    private String description;
 
 //    public Set Category;
 
@@ -36,7 +37,7 @@ public class Product {
         this.dateAvailable = newProduct.dateAvailable;
         this.weight = newProduct.weight;
         this.discontinued = newProduct.discontinued;
-        this.cost = newProduct.cost;
+        this.costToMake = newProduct.cost;
         this.imageUrl = newProduct.imageUrl;
     }
 
@@ -103,12 +104,12 @@ public class Product {
         this.discontinued = discontinued;
     }
 
-    public float getCost() {
-        return cost;
+    public float getCostToMake() {
+        return costToMake;
     }
 
-    public void setCost(float cost) {
-        this.cost = cost;
+    public void setCostToMake(float cost) {
+        this.costToMake = cost;
     }
 
     public String getImageUrl() {
@@ -119,6 +120,18 @@ public class Product {
         this.imageUrl = imageUrl;
     }
 
+    public void setCostToMake(Float costToMake) {
+        this.costToMake = costToMake;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public void setAll(Product product) {
         this.productName = product.productName;
         this.displayName = product.displayName;
@@ -127,8 +140,9 @@ public class Product {
         this.dateAvailable = product.dateAvailable;
         this.weight = product.weight;
         this.discontinued = product.discontinued;
-        this.cost = product.cost;
+        this.costToMake = product.costToMake;
         this.imageUrl = product.imageUrl;
+        this.description = product.description;
 
     }
 }
