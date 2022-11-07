@@ -25,7 +25,7 @@ public class AccountService {
 
         try {
             return this.accountRepository.save(
-                    new Account(requestDTO.firstname, requestDTO.lastname, requestDTO.email, requestDTO.username, requestDTO.password, requestDTO.rank));
+                    new Account(requestDTO.firstName, requestDTO.lastName, requestDTO.email, requestDTO.username, requestDTO.password, requestDTO.rank));
         }
         catch (RuntimeException exception) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);

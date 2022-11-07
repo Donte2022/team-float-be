@@ -10,9 +10,9 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String firstname;
+    private String firstName;
 
-    private String lastname;
+    private String lastName;
 
     private String email;
 
@@ -28,9 +28,9 @@ public class Account {
     public Account() {
     }
 
-    public Account(String firstname, String lastname, String email, String username, String password, Integer rank) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public Account(String firstName, String lastName, String email, String username, String password, Integer rank) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
@@ -41,20 +41,20 @@ public class Account {
         return id;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getfirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setfirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getlastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setlastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
