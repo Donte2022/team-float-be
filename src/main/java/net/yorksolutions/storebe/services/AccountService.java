@@ -1,8 +1,7 @@
 package net.yorksolutions.storebe.services;
 
 import net.yorksolutions.storebe.dto.NewAccountRequestDTO;
-import net.yorksolutions.storebe.dto.updateAccountRequestDTO;
-import net.yorksolutions.storebe.dto.updateRankRequestDTO;
+import net.yorksolutions.storebe.dto.UpdateAccountRequestDTO;
 import net.yorksolutions.storebe.entities.Account;
 import net.yorksolutions.storebe.repositories.AccountRepository;
 import org.springframework.http.HttpStatus;
@@ -20,12 +19,10 @@ public class AccountService {
 
     public AccountService(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
-        this.accountService = accountService;
     }
 
 
     public Account create(NewAccountRequestDTO requestDTO) {
-
 
         try {
             return this.accountRepository.save(
@@ -36,7 +33,6 @@ public class AccountService {
         }
 
     }
-
 
     //this method will search the database for the accounts using the repo
     //this method does return an Optional in the form of Accounts
@@ -72,20 +68,7 @@ public class AccountService {
     }
 
 
-    public boolean updateAccount(updateAccountRequestDTO requestDTO, Long id) {
-
-//        Optional<Account> userAccount = this.accountRepository.findById(id);
-//
-//        Account account = userAccount.get();
-//
-//            account.setFirstname(requestDTO.firstname);
-//            account.setLastname(requestDTO.lastname);
-//            account.setEmail(requestDTO.email);
-//            account.setUsername(requestDTO.username);
-//            account.setPassword(requestDTO.password);
-//            account.setRank(requestDTO.rank);
-//
-//            return accountRepository.save(account);
+    public boolean updateAccount(UpdateAccountRequestDTO requestDTO, Long id) {
 
         try {
 
@@ -112,41 +95,4 @@ public class AccountService {
 
         }
     }
-
-    public boolean updateRank(updateRankRequestDTO requestDTO) {
-
-
-        Optional<Account> userAccount = (accountRepository.findById(updateRankRequestDTO.id));
-        Account account = userAccount.get();
-            account.setRank( requestDTO.rank);
-
-            //save the updated account in the repo
-            this.accountRepository.save(account);
-
-            //update was successful = true
-
-        return true;
-
-//        try {
-//
-//            //look for id if not present throw an error
-//            Optional<Account> userAccount = Optional.of(accountRepository.findById(updateRankRequestDTO.id).orElseThrow());
-//
-//
-//            Account account = userAccount.get();
-//            account.setRank((Number) requestDTO.rank);
-//
-//            //save the updated account in the repo
-//            this.accountRepository.save(account);
-//
-//            //update was successful = true
-//            return true;
-//
-//        } catch (Exception e) {
-//
-//            //update fail or error = false
-//            return false;
-//        }
-    }
-
 }

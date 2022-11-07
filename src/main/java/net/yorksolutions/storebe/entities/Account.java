@@ -22,13 +22,13 @@ public class Account {
     @JsonIgnore
     private String password;
 
-    private Number rank;
+    private Integer rank;
 
 
     public Account() {
     }
 
-    public Account(String firstname, String lastname, String email, String username, String password, Number rank) {
+    public Account(String firstname, String lastname, String email, String username, String password, Integer rank) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -81,11 +81,11 @@ public class Account {
         this.password = password;
     }
 
-    public Number getRank() {
+    public Integer getRank() {
         return rank;
     }
 
-    public void setRank(Number rank) {
+    public void setRank(Integer rank) {
         this.rank = rank;
     }
 }

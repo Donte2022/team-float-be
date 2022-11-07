@@ -1,8 +1,7 @@
 package net.yorksolutions.storebe.controllers;
 
 import net.yorksolutions.storebe.dto.NewAccountRequestDTO;
-import net.yorksolutions.storebe.dto.updateAccountRequestDTO;
-import net.yorksolutions.storebe.dto.updateRankRequestDTO;
+import net.yorksolutions.storebe.dto.UpdateAccountRequestDTO;
 import net.yorksolutions.storebe.entities.Account;
 import net.yorksolutions.storebe.services.AccountService;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +42,7 @@ public class AccountController {
 
  @PutMapping("/{id}")
 
- public Message updateAccount(@RequestBody updateAccountRequestDTO requestDTO, @PathVariable Long id) {
+ public Message updateAccount(@RequestBody UpdateAccountRequestDTO requestDTO, @PathVariable Long id) {
 
         //Return a message confirming if update was a success or fail
              return new Message( accountService.updateAccount(requestDTO, id) ? "Account successfully updated" : "Fail to update account");
@@ -54,13 +53,6 @@ public class AccountController {
     @GetMapping
     public Account login(@RequestParam String username, @RequestParam String password) {
         return this.accountService.login(username, password);
-    }
-
-    @PutMapping("/api/rank")
-    Message updateRank(@RequestBody updateRankRequestDTO requestDTO) {
-
-        //Return a message confirming if update was a success or fail
-        return new Message(accountService.updateRank(requestDTO) ? "Account successfully updated" : "Fail to update account");
     }
 
 }
