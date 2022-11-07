@@ -1,5 +1,6 @@
 package net.yorksolutions.storebe.entities;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -81,11 +82,12 @@ public class Account {
         this.password = password;
     }
 
-    public Number getRank() {
+    public Integer getRank() {
         return rank;
     }
 
     public void setRank(Integer rank) {
         this.rank = rank;
     }
+
 }
