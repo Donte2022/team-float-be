@@ -1,5 +1,10 @@
 package net.yorksolutions.storebe.controllers;
 
+public class AccountController {
+
+
+
+
 import net.yorksolutions.storebe.dto.NewAccountRequestDTO;
 import net.yorksolutions.storebe.entities.Account;
 import net.yorksolutions.storebe.services.AccountService;
@@ -34,6 +39,7 @@ public class AccountController {
     public Account login(@RequestParam String username, @RequestParam String password) {
         return this.accountService.login(username, password);
     }
+
 
 
 }
