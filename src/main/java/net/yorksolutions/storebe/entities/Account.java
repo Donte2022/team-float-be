@@ -82,7 +82,7 @@ public class Account {
         this.password = password;
     }
 
-    public Number getRank() {
+    public Integer getRank() {
         return rank;
     }
 
