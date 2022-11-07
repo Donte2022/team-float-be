@@ -22,8 +22,9 @@ public class Product {
     private Date dateAvailable;
     private Float weight;
     private boolean discontinued;
-    private float cost;
+    private Float cost;
     private String imageUrl;
+
 //    public Set Category;
 
 
