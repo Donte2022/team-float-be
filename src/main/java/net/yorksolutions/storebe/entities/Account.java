@@ -1,7 +1,5 @@
 package net.yorksolutions.storebe.entities;
 
-public class Account {
-
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
