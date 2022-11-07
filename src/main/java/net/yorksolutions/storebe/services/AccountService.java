@@ -78,8 +78,8 @@ public class AccountService {
 
             Account account = userAccount.get();
 
-            account.setFirstname(requestDTO.firstname);
-            account.setLastname(requestDTO.lastname);
+            account.setFirstName(requestDTO.firstname);
+            account.setLastName(requestDTO.lastname);
             account.setEmail(requestDTO.email);
             account.setUsername(requestDTO.username);
             account.setPassword(requestDTO.password);
