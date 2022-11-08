@@ -49,22 +49,42 @@ public class CategoryService {
     }
 
 
-//    public void putcat (CategoryDTO dto) {
-//        Optional<Category> obs = repository.findById(dto.id);
-//        prorepo.deleteAllByCategoriesContains(dto.id);
-//        if (obs.isEmpty()){
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//        }
-//        else {
-//            for (Long pro : dto.proidList){
-//                Optional<Product> obs2 = prorepo.findById(pro);
-//                if (obs2.isEmpty()){
-//                    throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//                }
-//                else {
-//                    obs2.get().Categories.add(obs.get());
-//                }
-//            }
-//        }
-//    }
+    public void putcat (CategoryDTO dto) {
+        Optional<Category> op = repository.findById(dto.id);
+        if (op.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        else {
+            op.get().setName(dto.name);
+            for (Product pro : prorepo.findAll()){
+               pro.Categories.remove(op.get());
+               prorepo.save(pro);
+            }
+            for (Long pro : dto.proidList){
+                Optional<Product> obs2 = prorepo.findById(pro);
+                if (obs2.isEmpty()){
+                    throw new ResponseStatusException(HttpStatus.CONFLICT);
+                }
+                else {
+                    obs2.get().Categories.add(op.get());
+                    prorepo.save(obs2.get());
+                }
+            }
+        }
+    }
+
+
+    public void deletecat (Long id) {
+        Optional<Category> op = repository.findById(id);
+        if (op.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        else {
+            for (Product pro : prorepo.findAll()){
+                pro.Categories.remove(op.get());
+                prorepo.save(pro);
+            }
+            repository.delete(op.get());
+        }
+    }
 }
