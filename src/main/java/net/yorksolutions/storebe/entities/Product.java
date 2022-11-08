@@ -39,6 +39,7 @@ public class Product {
         this.discontinued = newProduct.discontinued;
         this.costToMake = newProduct.cost;
         this.imageUrl = newProduct.imageUrl;
+        this.description = newProduct.description;
     }
 
     public Product() {
