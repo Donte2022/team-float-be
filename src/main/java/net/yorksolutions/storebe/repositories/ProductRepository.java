@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
 
-    Iterable<Product> deleteAllByCategoriesContains(Long id);
+//    Iterable<Product> deleteAllByCategoriesContains(Long id);
 }
