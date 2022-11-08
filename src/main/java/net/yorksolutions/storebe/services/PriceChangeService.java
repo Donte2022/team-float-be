@@ -40,33 +40,14 @@ public class PriceChangeService {
                 }
     }
 
-    public void PutPrice (PriceChangeDTO dto,Long oldid, Long id,Long proid) {
-        System.out.println(id);
-        Optional<PriceChange> optional = repository.findById(id);
-        Optional<Product> optional3 = prorepo.findById(oldid);
-        Optional<Product> optional2 = prorepo.findById(proid);
-
-        if (optional.isEmpty() || optional3.isEmpty()){
-            System.out.println( 1 + id);
-            System.out.println(3 + oldid);
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        }
-
-        else {
-
-            if (optional2.isPresent()) {
-                optional3.get().PriceChange.remove(optional.get());
-                optional2.get().PriceChange.add(optional.get());
-            }
-
-                PriceChange priceChange = optional.get();
-                priceChange.setNewPrice(dto.newPrice);
-                priceChange.setSale(dto.sale);
-                priceChange.setStartDate(dto.startDate);
-                priceChange.setEndDate(dto.endDate);
-                priceChange.setCouponLeft(dto.couponLeft);
-                repository.save(priceChange);
-        }
+    public void PutPrice (PriceChange priceChange) {
+      Optional<PriceChange> op =  repository.findById(priceChange.id);
+      if (op.isEmpty()){
+          throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+      }
+      else {
+          repository.save(priceChange);
+      }
     }
 
     public void DeletePrice (Long proid,Long id) {

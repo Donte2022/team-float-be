@@ -32,7 +32,6 @@ public class ProductService {
     }
 
     public void deleteProduct(Long id) {
-
         this.productRepository.deleteById(id);
     }
 
@@ -44,7 +43,5 @@ public class ProductService {
       Product product = productOpt.get();
       product.setAll(updatedProduct);
       this.productRepository.save(product);
-
-
     }
 }

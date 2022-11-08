@@ -27,7 +27,8 @@ public class Product {
     @OneToMany
     public Set<PriceChange> PriceChange;
 
-//    public Set Category;
+    @ManyToMany
+    public Set<Category> Categories;
 
 
     public Product(NewProductRequestDTO newProduct) {

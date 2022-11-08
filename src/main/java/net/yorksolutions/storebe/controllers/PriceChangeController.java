@@ -22,8 +22,8 @@ public class PriceChangeController {
     }
 
     @PutMapping
-    public void putprice (@RequestBody PriceChangeDTO price,@RequestParam Long old,@RequestParam long pro,@RequestParam Long id) {
-        this.service.PutPrice(price,old,id,pro);
+    public void putprice (@RequestBody PriceChange price) {
+        this.service.PutPrice(price);
     }
 
     @DeleteMapping("/{proid}/{id}")

@@ -13,7 +13,7 @@ public class PriceChange {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @JsonProperty
-    Long id;
+    public Long id;
 
     Boolean sale;
 
