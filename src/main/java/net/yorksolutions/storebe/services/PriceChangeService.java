@@ -22,14 +22,22 @@ public class PriceChangeService {
         this.prorepo = prorepo;
     }
 
-    public PriceChange PostPrice (PriceChangeDTO dto) {
+    public PriceChange PostPrice (PriceChangeDTO dto,Long id) {
+        Optional<Product> op = prorepo.findById(id);
+        if (op.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        else {
         PriceChange price = new PriceChange(
                 dto.sale,
                 dto.newPrice,
                 dto.startDate,
                 dto.endDate,
                 dto.couponLeft);
-        return repository.save(price);
+            op.get().PriceChange.add(price);
+            repository.save(price);
+            return price;
+                }
     }
 
     public void PutPrice (PriceChangeDTO dto,Long oldid, Long id,Long proid) {

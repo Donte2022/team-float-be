@@ -16,9 +16,9 @@ public class PriceChangeController {
         this.service = service;
     }
 
-    @PostMapping
-    public PriceChange postprice (@RequestBody PriceChangeDTO price) {
-        return service.PostPrice(price);
+    @PostMapping("/{id}")
+    public PriceChange postprice (@RequestBody PriceChangeDTO price,@PathVariable Long id) {
+        return service.PostPrice(price,id);
     }
 
     @PutMapping
