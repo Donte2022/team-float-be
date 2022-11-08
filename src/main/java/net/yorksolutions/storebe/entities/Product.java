@@ -2,11 +2,9 @@ package net.yorksolutions.storebe.entities;
 
 import net.yorksolutions.storebe.dto.NewProductRequestDTO;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 public class Product {
@@ -25,6 +23,9 @@ public class Product {
     private String imageUrl;
 
     private String description;
+
+    @OneToMany
+    public Set<PriceChange> PriceChange;
 
 //    public Set Category;
 
