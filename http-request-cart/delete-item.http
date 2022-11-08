@@ -1,0 +1,5 @@
+
+
+DELETE http://localhost:8080/api/cart/4
+Content-Type: application/json
+

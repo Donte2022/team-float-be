@@ -1,0 +1,15 @@
+
+POST http://localhost:8080/api/product
+Content-Type: application/json
+
+{
+  "productName": "Red Apple",
+  "displayName": "Red Apple Jelly Beans",
+  "map": 5.45,
+  "price": 7.89,
+  "dateAvailable":"2022-06-15T11:25:00.000Z",
+  "weight": 2.2,
+  "discontinued": false,
+  "cost": 3.4,
+  "imageUrl": "testimage"
+}

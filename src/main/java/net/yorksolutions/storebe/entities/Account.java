@@ -26,19 +26,22 @@ public class Account {
 
     private Integer rank;
 
+
     @OneToMany
-    public Set<Product> cart;
+    public Set<Orders> orders;
+//    getOrders() {return orders};
 
     public Account() {
     }
 
-    public Account(String firstName, String lastName, String email, String username, String password, Integer rank) {
+    public Account(String firstName, String lastName, String email, String username, String password, Integer rank, Set pastOrders) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
         this.rank = rank;
+//        this.pastOrders = pastOrders;
     }
 
     public Long getId() {

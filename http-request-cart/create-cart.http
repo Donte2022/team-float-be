@@ -1,0 +1,10 @@
+
+POST http://localhost:8080/api/cart
+Content-Type: application/json
+
+{
+  "productId": 8,
+  "productName": "Cotton Candy",
+  "price": 6.89,
+  "quantity": 5
+}

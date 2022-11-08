@@ -1,5 +1,7 @@
 package net.yorksolutions.storebe.dto;
 
+import java.util.Set;
+
 public class NewAccountRequestDTO {
 
 
@@ -14,4 +16,6 @@ public class NewAccountRequestDTO {
     public String password;
 
     public Integer rank;
+
+    public Set pastOrders;
 }
