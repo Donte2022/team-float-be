@@ -13,16 +13,11 @@ import java.util.Optional;
 @Service
 public class AccountService {
 
-
-
-
     AccountRepository accountRepository;
-    AccountService accountService;
 
     public AccountService(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
-
 
     public Account create(NewAccountRequestDTO requestDTO) {
         try {
@@ -35,8 +30,6 @@ public class AccountService {
 
     }
 
-    //this method will search the database for the accounts using the repo
-    //this method does return an Optional in the form of Accounts
     public Account login(String username, String password) {
 
         Optional<Account> accountOpt = this.accountRepository.findByUsernameAndPassword(username, password);
@@ -51,19 +44,11 @@ public class AccountService {
     public boolean deleteById(Long id) {
 
       try {
-
-          //look for id if not present throw an error
         var userAccount = accountRepository.findById(id).orElseThrow();
-
-        //delete the account in the repo
         accountRepository.deleteById(id);
-
-        //delete was successful = true
         return true;
 
     } catch (Exception e) {
-
-          //delete fail or error = false
           return false;
       }
     }
@@ -71,7 +56,6 @@ public class AccountService {
 
     public boolean updateAccount(UpdateAccountRequestDTO requestDTO, Long id) {
         try {
-
             Optional<Account> userAccount = this.accountRepository.findById(id);
 
             Account account = userAccount.get();
@@ -80,19 +64,21 @@ public class AccountService {
             account.setLastName(requestDTO.lastName);
             account.setEmail(requestDTO.email);
             account.setUsername(requestDTO.username);
-            account.setPassword(requestDTO.password);
+            if (requestDTO.password.length() != 0)
+                account.setPassword(requestDTO.password);
             account.setRank(requestDTO.rank);
 
             accountRepository.save(account);
 
-            //update was successful = true
             return true;
 
         } catch (Exception e) {
-
-            //update fail or error = false
             return false;
 
         }
+    }
+
+    public Iterable<Account> getAllAccounts() {
+        return accountRepository.findAll();
     }
 }
