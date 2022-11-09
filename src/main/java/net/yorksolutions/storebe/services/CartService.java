@@ -23,7 +23,7 @@ public class CartService {
 
         try {
              return this.cartRepository.save(
-                    new Cart(requestDTO.productId, requestDTO.productName, requestDTO.price, requestDTO.quantity));
+                    new Cart(requestDTO.productId, requestDTO.productName, requestDTO.price, requestDTO.quantity, requestDTO.owner));
         }
         catch (RuntimeException exception) {
             throw new ResponseStatusException(HttpStatus.NO_CONTENT);

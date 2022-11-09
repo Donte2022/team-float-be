@@ -17,21 +17,34 @@ public class Cart {
 
     private Integer quantity;
 
-    @ManyToOne
+
+
+    @OneToOne
     Account owner;
 
+//    @ManyToOne
+//    Account owner;
+//
+
+//    Long owner;
+
 //    @OneToMany
-//    @JoinColumn(name="pastOrders")
+////    @JoinColumn(name="pastOrders")
 //    public Set<Cart> pastOrders;
 
     public Cart() {
     }
 
-    public Cart(Integer productId, String productName, float price, Integer quantity) {
+    public Cart(Integer productId, String productName, float price, Integer quantity, Account owner) {
         this.productId = productId;
         this.productName = productName;
         this.price = price;
         this.quantity = quantity;
+        this.owner = owner;
+    }
+
+    public Account getOwner() {
+        return owner;
     }
 
     public Integer getProductId() {

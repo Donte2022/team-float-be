@@ -17,11 +17,11 @@ public class OrderService {
     }
 
     public Orders create(CartOrderRequestDTO requestDTO) {
-
+        //@RequestBody
 
         try {
             return this.orderRepository.save(
-                    new Orders(requestDTO.dateOrdered, requestDTO.productId, requestDTO.productName, requestDTO.quantity, requestDTO.price));
+                    new Orders(requestDTO.accountId,requestDTO.dateOrdered, requestDTO.productId, requestDTO.productName, requestDTO.quantity, requestDTO.price));
         }
         catch (RuntimeException exception) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);
@@ -29,16 +29,16 @@ public class OrderService {
     }
 
 
-    public Orders getOrders(Long id) {
-
-
-        //TODO create an Iterable to find the ids
-        try {
-            return (Orders) this.orderRepository.findAllById(id);
-        }
-        catch (RuntimeException exception) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT);
-        }
-    }
+//    public Orders getOrders(Long id) {
+//
+//
+//        //TODO create an Iterable to find the ids
+//        try {
+//            return Orders this.orderRepository.findAllById(id);
+//        }
+//        catch (RuntimeException exception) {
+//            throw new ResponseStatusException(HttpStatus.CONFLICT);
+//        }
+//    }
 }
 

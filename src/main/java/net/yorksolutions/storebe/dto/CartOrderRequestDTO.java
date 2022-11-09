@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class CartOrderRequestDTO {
 
+    public Integer accountId;
+
     public Date dateOrdered;
 
     public Integer productId;

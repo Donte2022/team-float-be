@@ -24,15 +24,15 @@ public class OrderController {
 
         return this.orderService.create(requestDTO);
     }
-//
-//
-//    //allow the FE to have access to the accounts to allow the user past orders
-    @GetMapping
-    public Orders getOrders(@PathVariable Long id) {
-        return this.orderService.getOrders(id);
-    }
 
-//    @GetMapping
+
+    //allow the FE to have access to the accounts to allow the user past orders
+//    @GetMapping("/{id}")
+//    public Orders getOrders(@PathVariable Long id) {
+//        return this.orderService.getOrders(id);
+//    }
+
+//    @GetMapping("/{id}")
 //    public Account login(@RequestParam String username, @RequestParam String password) {
 //        return this.accountService.login(username, password);
 //    }

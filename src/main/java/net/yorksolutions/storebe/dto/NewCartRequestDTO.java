@@ -1,6 +1,8 @@
 package net.yorksolutions.storebe.dto;
 
 
+import net.yorksolutions.storebe.entities.Account;
+
 public class NewCartRequestDTO {
 
 
@@ -10,6 +12,5 @@ public class NewCartRequestDTO {
     public Integer quantity;
 
     public float price;
-
-
+    public Account owner;
 }

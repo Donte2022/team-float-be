@@ -3,10 +3,7 @@ package net.yorksolutions.storebe.entities;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -16,6 +13,7 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    private Integer accountId;
     private Date dateOrdered;
 
     private Integer productId;
@@ -26,18 +24,27 @@ public class Orders {
 
     private float price;
 
+//    @ManyToOne
+//    public Set<>;
+
     public Orders() {
     }
 
 
-    public Orders(Date dateOrdered, Integer productId, String productName, Integer quantity, float price) {
+    public Orders(Integer accountId, Date dateOrdered, Integer productId, String productName, Integer quantity, float price) {
 
+        this.accountId = accountId;
         this.dateOrdered = dateOrdered;
         this.productId = productId;
         this.productName = productName;
         this.quantity = quantity;
         this.price = price;
     }
+
+    public Integer getAccountId() {
+        return accountId;
+    }
+
 
     public Long getId() {
         return id;

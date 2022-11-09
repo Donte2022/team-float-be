@@ -6,5 +6,16 @@ Content-Type: application/json
   "productId": 8,
   "productName": "Cotton Candy",
   "price": 6.89,
-  "quantity": 5
+  "quantity": 5,
+  "owner": {
+    "firstName": "Mary",
+    "lastName": "Dauls",
+    "email": "Mdauls2022@Gmail.com",
+    "username": "Dauls2022",
+    "password": "password123",
+    "rank": 2,
+    "id": 1
+  }
+
+
 }

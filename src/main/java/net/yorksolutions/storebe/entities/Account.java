@@ -26,9 +26,11 @@ public class Account {
 
     private Integer rank;
 
+//    @OneToOne
+//    private Cart cart;
 
-    @OneToMany
-    public Set<Orders> orders;
+//    @OneToMany
+//    public Set<Orders> orders;
 //    getOrders() {return orders};
 
     public Account() {
