@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 public class Orders {
@@ -24,8 +25,8 @@ public class Orders {
 
     private float price;
 
-//    @ManyToOne
-//    public Set<>;
+//    @OneToMany
+//    private Set<>;
 
     public Orders() {
     }

@@ -12,5 +12,5 @@ public class NewCartRequestDTO {
     public Integer quantity;
 
     public float price;
-    public Account owner;
+    public Account account;
 }

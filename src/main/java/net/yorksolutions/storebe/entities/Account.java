@@ -36,33 +36,32 @@ public class Account {
     public Account() {
     }
 
-    public Account(String firstName, String lastName, String email, String username, String password, Integer rank, Set pastOrders) {
+    public Account(String firstName, String lastName, String email, String username, String password, Integer rank) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
         this.rank = rank;
-//        this.pastOrders = pastOrders;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getFirstname() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstname(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getLastname() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastname(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -90,12 +89,11 @@ public class Account {
         this.password = password;
     }
 
-    public Number getRank() {
+    public Integer getRank() {
         return rank;
     }
 
     public void setRank(Integer rank) {
         this.rank = rank;
     }
-
 }
