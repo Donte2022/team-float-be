@@ -25,10 +25,10 @@ public class Product {
     private String description;
 
     @OneToMany
-    public Set<PriceChange> PriceChange;
+    public Set<priceChange> priceChange;
 
     @ManyToMany
-    public Set<Category> Categories;
+    public Set<Category> categories;
 
 
     public Product(NewProductRequestDTO newProduct) {

@@ -10,81 +10,79 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Observable;
-import java.util.Observer;
 import java.util.Optional;
 
 @Service
 public class CategoryService {
 
-    CategoryRepository repository;
-    ProductRepository prorepo;
+    CategoryRepository categoryRepository;
+    ProductRepository productRepository;
 
 
-    public CategoryService(CategoryRepository repository, ProductRepository prorepo) {
-        this.repository = repository;
-        this.prorepo = prorepo;
+    public CategoryService(CategoryRepository categoryRepository, ProductRepository productRepository) {
+        this.categoryRepository = categoryRepository;
+        this.productRepository = productRepository;
     }
 
     public Iterable<Category> getallcat () {
-        return this.repository.findAll();
+        return this.categoryRepository.findAll();
     }
 
-    public Category postcat (CategoryPostDTO dto) {
+    public Category postCategory(CategoryPostDTO dto) {
             Category cat = new Category(dto.name);
             for (Long pro : dto.proidList)
             {
                 System.out.println(pro);
-                Optional<Product> obs2 = prorepo.findById(pro);
+                Optional<Product> obs2 = productRepository.findById(pro);
                 if (obs2.isEmpty()){
                     throw new ResponseStatusException(HttpStatus.NOT_FOUND);
                 }
                 else {
 
-                    obs2.get().Categories.add(cat);
+                    obs2.get().categories.add(cat);
                 }
             }
-        repository.save(cat);
+        categoryRepository.save(cat);
             return cat;
     }
 
 
-    public void putcat (CategoryDTO dto) {
-        Optional<Category> op = repository.findById(dto.id);
+    public void putCategory(CategoryDTO dto) {
+        Optional<Category> op = categoryRepository.findById(dto.id);
         if (op.isEmpty()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         else {
             op.get().setName(dto.name);
-            for (Product pro : prorepo.findAll()){
-               pro.Categories.remove(op.get());
-               prorepo.save(pro);
+            for (Product pro : productRepository.findAll()){
+               pro.categories.remove(op.get());
+               productRepository.save(pro);
             }
             for (Long pro : dto.proidList){
-                Optional<Product> obs2 = prorepo.findById(pro);
+                Optional<Product> obs2 = productRepository.findById(pro);
                 if (obs2.isEmpty()){
                     throw new ResponseStatusException(HttpStatus.CONFLICT);
                 }
                 else {
-                    obs2.get().Categories.add(op.get());
-                    prorepo.save(obs2.get());
+                    obs2.get().categories.add(op.get());
+                    productRepository.save(obs2.get());
                 }
             }
         }
     }
 
 
-    public void deletecat (Long id) {
-        Optional<Category> op = repository.findById(id);
+    public void deleteCategory(Long id) {
+        Optional<Category> op = categoryRepository.findById(id);
         if (op.isEmpty()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         else {
-            for (Product pro : prorepo.findAll()){
-                pro.Categories.remove(op.get());
-                prorepo.save(pro);
+            for (Product pro : productRepository.findAll()){
+                pro.categories.remove(op.get());
+                productRepository.save(pro);
             }
-            repository.delete(op.get());
+            categoryRepository.delete(op.get());
         }
     }
 }

@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class PriceChange {
+public class priceChange {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @JsonProperty
@@ -26,10 +26,10 @@ public class PriceChange {
    Long couponLeft;
 
 
-    public PriceChange() {
+    public priceChange() {
     }
 
-    public PriceChange(Boolean sale, Long newPrice, Date startDate, Date endDate, Long couponLeft) {
+    public priceChange(Boolean sale, Long newPrice, Date startDate, Date endDate, Long couponLeft) {
         this.sale = sale;
         this.newPrice = newPrice;
         this.startDate = startDate;

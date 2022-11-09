@@ -24,17 +24,17 @@ public class CategoryController {
 
     @PostMapping
     public Category postcat (@RequestBody CategoryPostDTO dto) {
-      return this.service.postcat(dto);
+      return this.service.postCategory(dto);
     }
 
     @PutMapping
     public void putcat (@RequestBody CategoryDTO dto) {
-        this.service.putcat(dto);
+        this.service.putCategory(dto);
     }
 
     @DeleteMapping("/{id}")
     public void deletecat (@PathVariable Long id) {
-        this.service.deletecat(id);
+        this.service.deleteCategory(id);
     }
 
 }
