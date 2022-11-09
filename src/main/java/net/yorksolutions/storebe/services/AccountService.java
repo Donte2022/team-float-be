@@ -22,7 +22,7 @@ public class AccountService {
     public Account create(NewAccountRequestDTO requestDTO) {
         try {
             return this.accountRepository.save(
-                    new Account(requestDTO.firstName, requestDTO.lastName, requestDTO.email, requestDTO.username, requestDTO.password, requestDTO.rank));
+                    new Account(requestDTO.firstName, requestDTO.lastName, requestDTO.email, requestDTO.username, requestDTO.password, requestDTO.rank, requestDTO.orderId));
         }
         catch (RuntimeException exception) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);

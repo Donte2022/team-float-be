@@ -25,17 +25,20 @@ public class Account {
 
     private Integer rank;
 
+    private Integer orderId;
+
 
     public Account() {
     }
 
-    public Account(String firstName, String lastName, String email, String username, String password, Integer rank) {
+    public Account(String firstName, String lastName, String email, String username, String password, Integer rank, Integer orderId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
         this.rank = rank;
+        this.orderId = orderId;
     }
 
     public Long getId() {
@@ -90,4 +93,11 @@ public class Account {
         this.rank = rank;
     }
 
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
 }
