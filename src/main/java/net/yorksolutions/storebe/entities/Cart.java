@@ -1,6 +1,8 @@
 package net.yorksolutions.storebe.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -10,6 +12,8 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    private Integer orderId;
+
     private Integer productId;
     private String productName;
 
@@ -17,25 +21,15 @@ public class Cart {
 
     private Integer quantity;
 
-
-
     @OneToOne
     Account account;
 
-//    @ManyToOne
-//    Account account;
-//
-
-//    Long account;
-
-//    @OneToMany
-////    @JoinColumn(name="pastOrders")
-//    public Set<Cart> pastOrders;
 
     public Cart() {
     }
 
-    public Cart(Integer productId, String productName, float price, Integer quantity, Account account) {
+    public Cart(Integer orderId, Integer productId, String productName, float price, Integer quantity, Account account) {
+        this.orderId = orderId;
         this.productId = productId;
         this.productName = productName;
         this.price = price;
@@ -43,8 +37,13 @@ public class Cart {
         this.account = account;
     }
 
-    public Account getOwner() {
-        return account;
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 
     public Integer getProductId() {
@@ -74,6 +73,7 @@ public class Cart {
     public Integer getQuantity() {
         return quantity;
     }
+
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;

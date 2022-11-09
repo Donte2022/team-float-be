@@ -4,7 +4,9 @@ package net.yorksolutions.storebe.entities;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,8 +27,8 @@ public class Orders {
 
     private float price;
 
-//    @OneToMany
-//    private Set<>;
+//    @OneToMany()
+//      Set<Cart> cart;
 
     public Orders() {
     }
@@ -40,7 +42,10 @@ public class Orders {
         this.productName = productName;
         this.quantity = quantity;
         this.price = price;
+//        this.cart = cart;
     }
+
+
 
     public Integer getAccountId() {
         return accountId;
@@ -90,4 +95,12 @@ public class Orders {
     public void setPrice(float price) {
         this.price = price;
     }
+
+//    public Set<Cart> getCart() {
+//        return cart;
+//    }
+//
+//    public void setCart(Set<Cart> cart) {
+//        this.cart = cart;
+//    }
 }

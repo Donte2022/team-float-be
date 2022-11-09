@@ -1,6 +1,7 @@
 package net.yorksolutions.storebe.services;
 
 import net.yorksolutions.storebe.dto.CartOrderRequestDTO;
+import net.yorksolutions.storebe.entities.Cart;
 import net.yorksolutions.storebe.entities.Orders;
 import net.yorksolutions.storebe.repositories.OrderRepository;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ public class OrderService {
 
         try {
             return this.orderRepository.save(
-                    new Orders(requestDTO.accountId,requestDTO.dateOrdered, requestDTO.productId, requestDTO.productName, requestDTO.quantity, requestDTO.price));
+                    new Orders (requestDTO.accountId,requestDTO.dateOrdered, requestDTO.productId, requestDTO.productName, requestDTO.quantity, requestDTO.price));
         }
         catch (RuntimeException exception) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);

@@ -2,21 +2,21 @@
 POST http://localhost:8080/api/orders
 Content-Type: application/json
 
-[
+
+
+
 {
   "accountId": 1,
   "dateOrdered": "2020-03-08",
-  "productId": 8,
+  "productId": 88,
   "productName": "Cotton Candy",
   "price": 6.89,
-  "quantity": 5
-},
-{
-"accountId": 1,
-"dateOrdered": "2020-03-08",
-"productId": 8,
-"productName": "Cotton Candy",
-"price": 6.89,
-"quantity": 5
+  "quantity": 12,
+  "cartId": 1
+  }
+
+
+
+
+
 }
-]

@@ -2,6 +2,7 @@ package net.yorksolutions.storebe.services;
 import net.yorksolutions.storebe.dto.NewCartRequestDTO;
 import net.yorksolutions.storebe.dto.UpdateCartRequestDTO;
 import net.yorksolutions.storebe.entities.Cart;
+import net.yorksolutions.storebe.entities.Orders;
 import net.yorksolutions.storebe.repositories.CartRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class CartService {
 
         try {
              return this.cartRepository.save(
-                    new Cart(requestDTO.productId, requestDTO.productName, requestDTO.price, requestDTO.quantity, requestDTO.account));
+                    new Cart(requestDTO.orderId, requestDTO.productId, requestDTO.productName, requestDTO.price, requestDTO.quantity, requestDTO.account));
         }
         catch (RuntimeException exception) {
             throw new ResponseStatusException(HttpStatus.NO_CONTENT);
