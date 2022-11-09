@@ -20,7 +20,4 @@ public class CartOrderRequestDTO {
 
     public float price;
 
-    @OneToMany
-   public Set<Cart> cart;
-
 }

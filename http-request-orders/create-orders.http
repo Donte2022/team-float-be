@@ -11,8 +11,7 @@ Content-Type: application/json
   "productId": 88,
   "productName": "Cotton Candy",
   "price": 6.89,
-  "quantity": 12,
-  "cartId": 1
+  "quantity": 12
   }
 
 
