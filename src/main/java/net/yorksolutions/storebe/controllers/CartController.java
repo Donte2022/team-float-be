@@ -45,5 +45,11 @@ public class CartController {
         return new Message( cartService.updateCart(requestDTO, id) ? "cart successfully updated" : "Fail to update cart");
     }
 
+    @GetMapping("/{accountId}/{orderId}")
+    public Iterable<Cart> getCartsByOrderId(@PathVariable Integer accountId, @PathVariable Integer orderId) {
+      return this.cartService.getCartsByOrderId(accountId, orderId);
+
+    }
+
 
 }

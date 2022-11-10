@@ -18,6 +18,12 @@ public class CartService {
         this.cartRepository = cartRepository;
     }
 
+
+
+    public Iterable<Cart> getCartsByOrderId(Integer accountId, Integer orderId) {
+        return this.cartRepository.findAllByAccount_IdAndOrderId(accountId, orderId);
+    }
+
     public Cart create (NewCartRequestDTO requestDTO) {
 
 
