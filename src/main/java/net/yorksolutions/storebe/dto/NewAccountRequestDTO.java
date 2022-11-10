@@ -17,5 +17,4 @@ public class NewAccountRequestDTO {
 
     public Integer rank;
 
-//    public Set pastOrders;
 }

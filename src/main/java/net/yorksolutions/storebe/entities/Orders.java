@@ -1,13 +1,9 @@
 package net.yorksolutions.storebe.entities;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
-import java.util.ArrayList;
+
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
+
 
 @Entity
 public class Orders {

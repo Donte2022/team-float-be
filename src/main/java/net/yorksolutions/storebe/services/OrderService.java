@@ -1,12 +1,13 @@
 package net.yorksolutions.storebe.services;
 
 import net.yorksolutions.storebe.dto.CartOrderRequestDTO;
-import net.yorksolutions.storebe.entities.Cart;
 import net.yorksolutions.storebe.entities.Orders;
 import net.yorksolutions.storebe.repositories.OrderRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -18,7 +19,7 @@ public class OrderService {
     }
 
     public Orders create(CartOrderRequestDTO requestDTO) {
-        //@RequestBody
+
 
         try {
             return this.orderRepository.save(
@@ -30,16 +31,16 @@ public class OrderService {
     }
 
 
-//    public Orders getOrders(Long id) {
-//
-//
-//        //TODO create an Iterable to find the ids
-//        try {
-//            return Orders this.orderRepository.findAllById(id);
-//        }
-//        catch (RuntimeException exception) {
-//            throw new ResponseStatusException(HttpStatus.CONFLICT);
-//        }
-//    }
+    public Orders findOrders (Integer id) {
+    Optional<Orders> accountOrders = this.orderRepository.findOrdersByAccountId(id);
+
+        if (accountOrders.isEmpty()) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND
+            );
+        }
+        return accountOrders.get();
+    }
+
 }
 

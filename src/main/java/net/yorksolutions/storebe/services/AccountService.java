@@ -35,8 +35,6 @@ public class AccountService {
 
     }
 
-    //this method will search the database for the accounts using the repo
-    //this method does return an Optional in the form of Accounts
     public Account login(String username, String password) {
         Optional<Account> accountOpt = this.accountRepository.findByUsernameAndPassword(username, password);
         if (accountOpt.isEmpty()) {

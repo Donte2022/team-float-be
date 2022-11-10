@@ -1,16 +1,14 @@
 package net.yorksolutions.storebe.entities;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+
 
 @Entity
 public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Long cartId;
 
     private Integer orderId;
 
@@ -50,8 +48,8 @@ public class Cart {
         return productId;
     }
 
-    public Long getId() {
-        return id;
+    public Long getCartId() {
+        return cartId;
     }
 
     public String getProductName() {
@@ -79,6 +77,6 @@ public class Cart {
         this.quantity = quantity;
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(Long cartId) {
     }
 }

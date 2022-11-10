@@ -2,9 +2,7 @@ package net.yorksolutions.storebe.dto;
 
 
 import net.yorksolutions.storebe.entities.Account;
-import net.yorksolutions.storebe.entities.Orders;
 
-import java.util.List;
 
 public class NewCartRequestDTO {
 

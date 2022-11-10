@@ -24,7 +24,6 @@ public class Product {
     private String imageUrl;
     private String description;
 
-//    public Set Category;
 
 
     public Product(NewProductRequestDTO newProduct) {
@@ -37,6 +36,7 @@ public class Product {
         this.discontinued = newProduct.discontinued;
         this.costToMake = newProduct.cost;
         this.imageUrl = newProduct.imageUrl;
+        this.description = newProduct.description;
     }
 
     public Product() {

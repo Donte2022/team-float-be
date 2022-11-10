@@ -9,7 +9,7 @@ Content-Type: application/json
   "accountId": 1,
   "dateOrdered": "2020-03-08",
   "productId": 88,
-  "productName": "Cotton Candy",
+  "productName": "Watermelon Jelly Beans",
   "price": 6.89,
   "quantity": 12
   }
@@ -18,4 +18,4 @@ Content-Type: application/json
 
 
 
-}
+

@@ -17,15 +17,12 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-
     @PostMapping
     public Account create(@RequestBody NewAccountRequestDTO requestDTO) {
 
         return this.accountService.create(requestDTO);
     }
 
-
-    //allow the FE to have access to the accounts to allow the client to login
     @GetMapping
     public Account login(@RequestParam String username, @RequestParam String password) {
         return this.accountService.login(username, password);

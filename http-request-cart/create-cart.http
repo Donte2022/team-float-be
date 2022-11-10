@@ -3,6 +3,7 @@ POST http://localhost:8080/api/cart
 Content-Type: application/json
 
 {
+
   "orderId": 123,
   "productId": 43,
   "productName": "Sour Jelly Beans",
@@ -15,7 +16,7 @@ Content-Type: application/json
     "username": "Dauls2022",
     "password": "password123",
     "rank": 2,
-    "id": 1
+    "id": 3
   }
 }
 
