@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin
 @RequestMapping("/api/product")
-@CrossOrigin
 public class ProductController {
 
     ProductService productService;

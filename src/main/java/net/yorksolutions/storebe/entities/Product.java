@@ -25,6 +25,12 @@ public class Product {
     private String imageUrl;
     private String description;
 
+    @OneToMany
+    public Set<priceChange> priceChange;
+
+    @ManyToMany
+    public Set<Category> categories;
+
     public Product(NewProductRequestDTO newProduct) {
         this.productName = newProduct.productName;
         this.displayName = newProduct.displayName;
