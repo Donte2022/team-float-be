@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin
 @RequestMapping("/api/product")
+@CrossOrigin
 public class ProductController {
 
     ProductService productService;
@@ -22,8 +23,8 @@ public class ProductController {
     }
 
     @PostMapping
-    public void addProduct(@RequestBody NewProductRequestDTO newProduct) {
-        this.productService.addProduct(newProduct);
+    public Product addProduct(@RequestBody NewProductRequestDTO newProduct) {
+      return this.productService.addProduct(newProduct);
     }
 
     @DeleteMapping

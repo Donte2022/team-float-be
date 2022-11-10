@@ -17,4 +17,6 @@ public class NewAccountRequestDTO {
 
     public Integer rank;
 
+    public Integer orderId;
+
 }

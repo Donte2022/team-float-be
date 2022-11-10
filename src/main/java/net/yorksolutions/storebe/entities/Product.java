@@ -4,6 +4,7 @@ import net.yorksolutions.storebe.dto.NewProductRequestDTO;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 public class Product {
@@ -23,8 +24,6 @@ public class Product {
     private Float costToMake;
     private String imageUrl;
     private String description;
-
-
 
     public Product(NewProductRequestDTO newProduct) {
         this.productName = newProduct.productName;

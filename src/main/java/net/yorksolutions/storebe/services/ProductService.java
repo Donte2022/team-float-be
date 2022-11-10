@@ -24,15 +24,14 @@ public class ProductService {
         return this.productRepository.findAll();
     }
 
-    public void addProduct(NewProductRequestDTO newProduct) {
+    public Product addProduct(NewProductRequestDTO newProduct) {
 
         Product product = new Product(newProduct);
 
-        this.productRepository.save(product);
+       return this.productRepository.save(product);
     }
 
     public void deleteProduct(Long id) {
-
         this.productRepository.deleteById(id);
     }
 
@@ -44,7 +43,5 @@ public class ProductService {
       Product product = productOpt.get();
       product.setAll(updatedProduct);
       this.productRepository.save(product);
-
-
     }
 }

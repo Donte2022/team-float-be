@@ -8,6 +8,7 @@ public class StoreBeApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(StoreBeApplication.class, args);
+        //test
     }
 
 }
