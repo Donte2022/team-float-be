@@ -1,0 +1,21 @@
+
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+
+
+
+{
+  "accountId": 1,
+  "dateOrdered": "2020-03-08",
+  "productId": 88,
+  "productName": "Watermelon Jelly Beans",
+  "price": 6.89,
+  "quantity": 12
+  }
+
+
+
+
+
+

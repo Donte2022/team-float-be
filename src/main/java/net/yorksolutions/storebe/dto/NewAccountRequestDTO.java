@@ -1,5 +1,7 @@
 package net.yorksolutions.storebe.dto;
 
+import java.util.Set;
+
 public class NewAccountRequestDTO {
 
 
@@ -16,4 +18,5 @@ public class NewAccountRequestDTO {
     public Integer rank;
 
     public Integer orderId;
+
 }

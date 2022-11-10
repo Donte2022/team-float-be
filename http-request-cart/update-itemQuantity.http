@@ -1,0 +1,13 @@
+
+PUT http://localhost:8080/api/cart/2
+Content-Type: application/json
+
+{
+  "productId": 8,
+  "productName": "Cotton Candy",
+  "price": 6.89,
+  "quantity": 15,
+  "account": {
+    "id": 1
+  }
+}

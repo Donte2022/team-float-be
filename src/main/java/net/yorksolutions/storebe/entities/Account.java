@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
+
 @Entity
 public class Account {
 
@@ -27,10 +28,9 @@ public class Account {
 
     private Integer orderId;
 
-
     public Account() {
     }
-
+    
     public Account(String firstName, String lastName, String email, String username, String password, Integer rank, Integer orderId) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -93,6 +93,7 @@ public class Account {
         this.rank = rank;
     }
 
+
     public Integer getOrderId() {
         return orderId;
     }
@@ -100,4 +101,5 @@ public class Account {
     public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
+
 }

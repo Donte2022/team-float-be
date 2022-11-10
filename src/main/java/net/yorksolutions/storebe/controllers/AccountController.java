@@ -21,6 +21,7 @@ public class AccountController {
         return this.accountService.create(requestDTO);
     }
 
+
     static class Message {
         public String message;
         Message(String message) {
@@ -36,6 +37,7 @@ public class AccountController {
     public Message updateAccount(@RequestBody UpdateAccountRequestDTO requestDTO, @PathVariable Long id) {
         return new Message( accountService.updateAccount(requestDTO, id) ? "Account successfully updated" : "Fail to update account");
     }
+
 
     @GetMapping
     public Account login(@RequestParam String username, @RequestParam String password) {

@@ -11,7 +11,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Optional;
 
 @Service
-@CrossOrigin
+
 public class ProductService {
 
     ProductRepository productRepository;

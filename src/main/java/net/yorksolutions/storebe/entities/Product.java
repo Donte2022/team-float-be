@@ -12,6 +12,8 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    @Column(nullable = false, unique = true)
     private String productName;
     private String displayName;
     private Float map;
@@ -21,15 +23,7 @@ public class Product {
     private boolean discontinued;
     private Float costToMake;
     private String imageUrl;
-
     private String description;
-
-    @OneToMany
-    public Set<priceChange> priceChange;
-
-    @ManyToMany
-    public Set<Category> categories;
-
 
     public Product(NewProductRequestDTO newProduct) {
         this.productName = newProduct.productName;

@@ -1,0 +1,5 @@
+
+GET http://localhost:8080/api/account/
+Content-Type: application/json
+
+//TODO Add logic to allow access to all accounts for Amin
