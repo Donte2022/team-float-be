@@ -9,7 +9,7 @@ import java.util.Optional;
 @Repository
 public interface CartRepository extends CrudRepository <Cart, Long>{
 
-    Iterable<Cart> findAllByAccount_IdAndOrderId(Integer accountId, Integer orderId);
+    Iterable<Cart> findAllByAccount_IdAndOrderId(Long accountId, Integer orderId);
 
     Optional<Cart> findByProductId(Integer productId);
 

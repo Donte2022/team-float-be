@@ -46,7 +46,7 @@ public class CartController {
     }
 
     @GetMapping("/{accountId}/{orderId}")
-    public Iterable<Cart> getCartsByOrderId(@PathVariable Integer accountId, @PathVariable Integer orderId) {
+    public Iterable<Cart> getCartsByOrderId(@PathVariable Long accountId, @PathVariable Integer orderId) {
       return this.cartService.getCartsByOrderId(accountId, orderId);
 
     }
