@@ -36,8 +36,8 @@ public class CouponController {
         return couponService.update(requestDTO);
     }
 
-    @PutMapping("/redeem/{couponId}")
-    public Coupon redeem(@PathVariable Long couponId) {
-        return couponService.redeem(couponId);
+    @PutMapping("/redeem/{code}")
+    public Coupon redeem(@PathVariable String code) {
+        return couponService.redeem(code);
     }
 }

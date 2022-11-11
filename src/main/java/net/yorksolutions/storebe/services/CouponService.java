@@ -53,8 +53,8 @@ public class CouponService {
         return couponRepository.save(coupon);
     }
 
-    public Coupon redeem(Long couponId) {
-        Optional<Coupon> couponOpt = couponRepository.findById(couponId);
+    public Coupon redeem(String code) {
+        Optional<Coupon> couponOpt = couponRepository.findByCode(code);
         if (couponOpt.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
