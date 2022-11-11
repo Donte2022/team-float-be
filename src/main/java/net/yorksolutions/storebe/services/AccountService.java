@@ -80,6 +80,14 @@ public class AccountService {
         }
     }
 
+//    public Account getAccountById(Long accountId) {
+//
+//       Optional<Account> accountOpt = this.accountRepository.findById(accountId);
+//       if (accountOpt.isPresent()) {
+//
+//       }
+//    }
+
     public Iterable<Account> getAllAccounts() {
         return accountRepository.findAll();
     }

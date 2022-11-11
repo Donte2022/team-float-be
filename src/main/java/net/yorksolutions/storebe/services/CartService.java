@@ -1,6 +1,7 @@
 package net.yorksolutions.storebe.services;
 import net.yorksolutions.storebe.dto.NewCartRequestDTO;
 import net.yorksolutions.storebe.dto.UpdateCartRequestDTO;
+import net.yorksolutions.storebe.entities.Account;
 import net.yorksolutions.storebe.entities.Cart;
 import net.yorksolutions.storebe.repositories.CartRepository;
 import org.springframework.http.HttpStatus;
@@ -13,9 +14,17 @@ import java.util.Optional;
 public class CartService {
 
     CartRepository cartRepository;
+    AccountService accountService;
 
-    public CartService(CartRepository cartRepository) {
+    public CartService(CartRepository cartRepository, AccountService accountService) {
         this.cartRepository = cartRepository;
+        this.accountService = accountService;
+    }
+
+
+
+    public Iterable<Cart> getCartsByOrderId(Long accountId, Integer orderId) {
+        return this.cartRepository.findAllByAccount_IdAndOrderId(accountId, orderId);
     }
 
     public Cart create (NewCartRequestDTO requestDTO) {
