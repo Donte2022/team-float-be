@@ -61,7 +61,6 @@ public class AccountService {
             Optional<Account> userAccount = this.accountRepository.findById(id);
 
             Account account = userAccount.get();
-
             account.setFirstName(requestDTO.firstName);
             account.setLastName(requestDTO.lastName);
             account.setEmail(requestDTO.email);
@@ -69,6 +68,7 @@ public class AccountService {
             if (requestDTO.password.length() != 0)
                 account.setPassword(requestDTO.password);
             account.setRank(requestDTO.rank);
+            account.setOrderId(requestDTO.orderId);
 
             accountRepository.save(account);
 

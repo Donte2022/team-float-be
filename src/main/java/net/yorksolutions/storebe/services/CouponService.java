@@ -1,6 +1,7 @@
 package net.yorksolutions.storebe.services;
 
 import net.yorksolutions.storebe.dto.NewCouponRequestDTO;
+import net.yorksolutions.storebe.dto.RedeemCouponRequestDTO;
 import net.yorksolutions.storebe.dto.UpdateCouponRequestDTO;
 import net.yorksolutions.storebe.entities.Coupon;
 import net.yorksolutions.storebe.repositories.CouponRepository;
@@ -8,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -53,13 +55,23 @@ public class CouponService {
         return couponRepository.save(coupon);
     }
 
-    public Coupon redeem(String code) {
-        Optional<Coupon> couponOpt = couponRepository.findByCode(code);
+    public Coupon redeem(RedeemCouponRequestDTO requestDTO) {
+        Optional<Coupon> couponOpt = couponRepository.findByCode(requestDTO.code);
         if (couponOpt.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         Coupon coupon = couponOpt.get();
         Long useLimit = coupon.getUseLimit();
+        if (coupon.getStartDate().getTime() > new Date().getTime()) {
+            throw new ResponseStatusException(HttpStatus.TOO_EARLY);
+        }
+        if (coupon.getEndDate().getTime() < new Date().getTime()) {
+            throw new ResponseStatusException(HttpStatus.NOT_EXTENDED);
+        }
+
+        if (useLimit < 1) {
+            throw new ResponseStatusException(HttpStatus.TOO_MANY_REQUESTS);
+        }
         if (useLimit > 0) {
             coupon.setUseLimit(useLimit - 1);
             return couponRepository.save(coupon);

@@ -1,6 +1,7 @@
 package net.yorksolutions.storebe.controllers;
 
 import net.yorksolutions.storebe.dto.NewCouponRequestDTO;
+import net.yorksolutions.storebe.dto.RedeemCouponRequestDTO;
 import net.yorksolutions.storebe.dto.UpdateCouponRequestDTO;
 import net.yorksolutions.storebe.entities.Coupon;
 import net.yorksolutions.storebe.services.CouponService;
@@ -36,8 +37,8 @@ public class CouponController {
         return couponService.update(requestDTO);
     }
 
-    @PutMapping("/redeem/{code}")
-    public Coupon redeem(@PathVariable String code) {
-        return couponService.redeem(code);
+    @PutMapping("/redeem")
+    public Coupon redeem(@RequestBody RedeemCouponRequestDTO requestDTO) {
+        return couponService.redeem(requestDTO);
     }
 }
