@@ -34,8 +34,8 @@ public class AccountController {
     }
 
      @PutMapping("/{id}")
-    public Message updateAccount(@RequestBody UpdateAccountRequestDTO requestDTO, @PathVariable Long id) {
-        return new Message( accountService.updateAccount(requestDTO, id) ? "Account successfully updated" : "Fail to update account");
+    public Account updateAccount(@RequestBody UpdateAccountRequestDTO requestDTO, @PathVariable Long id) {
+        return accountService.updateAccount(requestDTO, id);
     }
 
 

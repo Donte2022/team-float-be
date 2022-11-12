@@ -17,4 +17,6 @@ package net.yorksolutions.storebe.dto;
 
         public Integer rank;
 
+        public Integer orderId;
+
 }
