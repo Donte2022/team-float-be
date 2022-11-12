@@ -63,7 +63,6 @@ public class AccountService {
             }
 
             Account account = userAccount.get();
-
             account.setFirstName(requestDTO.firstName);
             account.setLastName(requestDTO.lastName);
             account.setEmail(requestDTO.email);
