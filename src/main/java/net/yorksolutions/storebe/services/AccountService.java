@@ -56,9 +56,11 @@ public class AccountService {
     }
 
 
-    public boolean updateAccount(UpdateAccountRequestDTO requestDTO, Long id) {
-        try {
+    public Account updateAccount(UpdateAccountRequestDTO requestDTO, Long id) {
             Optional<Account> userAccount = this.accountRepository.findById(id);
+            if(userAccount.isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            }
 
             Account account = userAccount.get();
 
@@ -66,27 +68,14 @@ public class AccountService {
             account.setLastName(requestDTO.lastName);
             account.setEmail(requestDTO.email);
             account.setUsername(requestDTO.username);
-            if (requestDTO.password.length() != 0)
-                account.setPassword(requestDTO.password);
             account.setRank(requestDTO.rank);
+            account.setOrderId(requestDTO.orderId);
 
-            accountRepository.save(account);
+            if (requestDTO.password != null && requestDTO.password.length() != 0)
+                account.setPassword(requestDTO.password);
 
-            return true;
-
-        } catch (Exception e) {
-            return false;
-
-        }
+            return accountRepository.save(account);
     }
-
-//    public Account getAccountById(Long accountId) {
-//
-//       Optional<Account> accountOpt = this.accountRepository.findById(accountId);
-//       if (accountOpt.isPresent()) {
-//
-//       }
-//    }
 
     public Iterable<Account> getAllAccounts() {
         return accountRepository.findAll();
